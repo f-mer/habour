@@ -1,0 +1,18 @@
+version: '3'
+
+networks:
+  habour:
+    external: true
+
+services:
+  mysql:
+    image: mysql
+    volumes:
+      - ./data/database:/var/lib/mysql
+    ports:
+      - 3306:3306
+    networks:
+      - habour
+    environment:
+      MYSQL_ROOT_PASSWORD: root
+    restart: always
