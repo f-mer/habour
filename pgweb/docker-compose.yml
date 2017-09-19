@@ -1,0 +1,20 @@
+version: '3'
+
+networks:
+  ingress:
+    external: true
+  habour:
+    external: true
+
+services:
+  web:
+    image: sosedoff/pgweb
+    environment:
+      DATABASE_URL: postgres://postgres:root@postgres:5432/postgres?sslmode=disable
+    networks:
+      - ingress
+      - habour
+    restart: always
+    labels:
+      traefik.docker.network: ingress
+      traefik.frontend.rule: Host:pgweb.docker
