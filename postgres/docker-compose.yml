@@ -1,0 +1,18 @@
+version: '3'
+
+networks:
+  habour:
+    external: true
+
+services:
+  postgres:
+    image: postgres
+    volumes:
+      - ./data/database:/var/lib/postgres
+    ports:
+      - 5432:5432
+    networks:
+      - habour
+    environment:
+      POSTGRES_PASSWORD: root
+    restart: always
