@@ -16,3 +16,7 @@ services:
     networks:
       - ingress
     restart: always
+    labels:
+      traefik.port: '8080'
+      traefik.docker.network: ingress
+      traefik.frontend.rule: Host:traefik.docker
