@@ -3,7 +3,7 @@ version: '3'
 networks:
   ingress:
     external: true
-  habour:
+  harbour:
     external: true
 
 services:
@@ -13,7 +13,7 @@ services:
       PMA_HOST: mysql
     networks:
       - ingress
-      - habour
+      - harbour
     restart: always
     labels:
       traefik.docker.network: ingress

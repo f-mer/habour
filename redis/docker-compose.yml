@@ -1,7 +1,7 @@
 version: '3'
 
 networks:
-  habour:
+  harbour:
     external: true
 
 services:
@@ -10,5 +10,5 @@ services:
     ports:
       - 6379:6379
     networks:
-      - habour
+      - harbour
     restart: always

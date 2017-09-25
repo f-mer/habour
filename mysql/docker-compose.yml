@@ -1,7 +1,7 @@
 version: '3'
 
 networks:
-  habour:
+  harbour:
     external: true
 
 services:
@@ -12,7 +12,7 @@ services:
     ports:
       - 3306:3306
     networks:
-      - habour
+      - harbour
     environment:
       MYSQL_ROOT_PASSWORD: root
     restart: always

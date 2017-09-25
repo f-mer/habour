@@ -3,7 +3,7 @@ version: '3'
 networks:
   ingress:
     external: true
-  habour:
+  harbour:
     external: true
 
 services:
@@ -13,7 +13,7 @@ services:
       DATABASE_URL: postgres://postgres:root@postgres:5432/postgres?sslmode=disable
     networks:
       - ingress
-      - habour
+      - harbour
     restart: always
     labels:
       traefik.docker.network: ingress

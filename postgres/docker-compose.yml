@@ -1,7 +1,7 @@
 version: '3'
 
 networks:
-  habour:
+  harbour:
     external: true
 
 services:
@@ -12,7 +12,7 @@ services:
     ports:
       - 5432:5432
     networks:
-      - habour
+      - harbour
     environment:
       POSTGRES_PASSWORD: root
     restart: always
