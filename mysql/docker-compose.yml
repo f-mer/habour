@@ -1,6 +1,8 @@
-version: '3'
+version: '3.2'
 
 networks:
+  ingress:
+    external: true
   harbour:
     external: true
 
@@ -16,3 +18,17 @@ services:
     environment:
       MYSQL_ROOT_PASSWORD: root
     restart: always
+  phpmyadmin:
+    image: phpmyadmin/phpmyadmin
+    environment:
+      PMA_HOST: mysql
+      PMA_PORT: 3306
+      PMA_USER: root
+      PMA_PASSWORD: root
+    networks:
+      - ingress
+      - harbour
+    restart: always
+    labels:
+      traefik.docker.network: ingress
+      traefik.frontend.rule: Host:phpmyadmin.docker
