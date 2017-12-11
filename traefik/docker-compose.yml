@@ -1,22 +1,22 @@
-version: '3'
+version: '3.2'
 
 networks:
-  ingress:
+  inbound:
     external: true
 
 services:
   proxy:
-    image: traefik
-    command: traefik --web --docker --docker.domain=docker --docker.watch
+    image: traefik:1.5
+    command: traefik --web --docker --docker.domain=docker --docker.watch --accesslog=true --accesslog.format=json
     volumes:
       - /var/run/docker.sock:/var/run/docker.sock
     ports:
       - 80:80
       - 8080:8080
     networks:
-      - ingress
+      - inbound
     restart: always
     labels:
       traefik.port: '8080'
-      traefik.docker.network: ingress
+      traefik.docker.network: inbound
       traefik.frontend.rule: Host:traefik.docker

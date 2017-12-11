@@ -1,6 +1,8 @@
-version: '3'
+version: '3.2'
 
 networks:
+  inbound:
+    external: true
   harbour:
     external: true
 

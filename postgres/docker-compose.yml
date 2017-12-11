@@ -1,7 +1,7 @@
 version: '3.2'
 
 networks:
-  ingress:
+  inbound:
     external: true
   harbour:
     external: true
@@ -23,9 +23,9 @@ services:
     environment:
       DATABASE_URL: postgres://postgres:root@postgres:5432/postgres?sslmode=disable
     networks:
-      - ingress
+      - inbound
       - harbour
     restart: always
     labels:
-      traefik.docker.network: ingress
+      traefik.docker.network: inbound
       traefik.frontend.rule: Host:pgweb.docker

@@ -1,7 +1,7 @@
 version: '3.2'
 
 networks:
-  ingress:
+  inbound:
     external: true
   harbour:
     external: true
@@ -26,9 +26,9 @@ services:
       PMA_USER: root
       PMA_PASSWORD: root
     networks:
-      - ingress
+      - inbound
       - harbour
     restart: always
     labels:
-      traefik.docker.network: ingress
+      traefik.docker.network: inbound
       traefik.frontend.rule: Host:phpmyadmin.docker
