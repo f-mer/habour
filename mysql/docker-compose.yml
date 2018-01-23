@@ -8,7 +8,7 @@ networks:
 
 services:
   mysql:
-    image: mysql
+    image: mysql:8
     volumes:
       - ./data/database:/var/lib/mysql
     ports:
@@ -19,7 +19,7 @@ services:
       MYSQL_ROOT_PASSWORD: root
     restart: always
   phpmyadmin:
-    image: phpmyadmin/phpmyadmin
+    image: phpmyadmin/phpmyadmin:4.7
     environment:
       PMA_HOST: mysql
       PMA_PORT: 3306
